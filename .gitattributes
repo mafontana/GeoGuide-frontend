@@ -1,0 +1,6 @@
+*.pbxproj -text
+./android
+./bin
+./ios
+./js
+ios/Pods/GVRSDK/Libraries/libGVRSDK.a
