@@ -2,6 +2,7 @@
 #
 .DS_Store
 ./ios/Pods/GVRSDK/Libraries/
+/ios/Pods/GVRSDK/Libraries/
 /Users/meredith/capstone/viroARapp/ios/Pods/GVRSDK/Libraries/
 # Xcode
 #
