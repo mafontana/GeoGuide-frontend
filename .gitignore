@@ -1,5 +1,5 @@
 # OSX
-#
+# git reset <filename>
 .DS_Store
 ./ios/Pods/GVRSDK/Libraries/
 /ios/Pods/GVRSDK/Libraries/

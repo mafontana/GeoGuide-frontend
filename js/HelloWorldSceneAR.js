@@ -8,13 +8,16 @@ import {
   ViroARScene,
   ViroText,
   ViroConstants,
+  Viro3DObject,
+  ViroAmbientLight,
+  ViroSpotLight,
+  ViroMaterials
 } from 'react-viro';
 
 export default class HelloWorldSceneAR extends Component {
 
   constructor() {
     super();
-
     // Set initial state here
     this.state = {
       text : "Initializing AR..."
@@ -27,10 +30,28 @@ export default class HelloWorldSceneAR extends Component {
   render() {
     return (
       <ViroARScene onTrackingUpdated={this._onInitialized} >
-        <ViroText text={this.state.text} scale={[.5, .5, .5]} position={[0, 0, -1]} style={styles.helloWorldTextStyle} />
+      
+        <ViroText 
+        style={styles.helloWorldTextStyle} position={[0, 0, -5]}
+        width={20} height={5}
+        outerStroke={{type:"Outline", width:8, color:'#FF0000'}}
+        text="Thick red outline" />
+        <ViroAmbientLight color="#ffffff" />
+       
+        <Viro3DObject source={require('./res/arrow/arrow.obj')}
+        resources={[require('./res/arrow/arrow.mtl')]}
+        type="OBJ"
+        position={[0.0, 0.0, -1]}
+        scale={[.5, .5, .5]}   
+        materials="face" 
+      />
       </ViroARScene>
     );
   }
+
+
+
+
 
   _onInitialized(state, reason) {
     if (state == ViroConstants.TRACKING_NORMAL) {
@@ -50,6 +71,14 @@ var styles = StyleSheet.create({
     color: '#ffffff',
     textAlignVertical: 'center',
     textAlign: 'center',  
+  },
+});
+
+ViroMaterials.createMaterials({
+  face: {
+    shininess : 2.0,
+    lightingModel: "Blinn",
+    diffuseTexture: require('./res/grid_bg.jpg'),
   },
 });
 
