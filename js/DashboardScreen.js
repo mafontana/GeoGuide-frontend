@@ -7,19 +7,12 @@ export default class DashboardScreen extends Component {
     return (
       <View style={localStyles.container}>
         <Text style={localStyles.buttonText}>Welcome!</Text>
-
         <TouchableHighlight style={localStyles.buttons} 
         underlayColor={'#F26419'}
         >
             <Text style={localStyles.buttonText}
             onPress={() => Actions.AR()}>Enter AR</Text>
-
-
-
-            
         </TouchableHighlight>
-
-
       </View>
     );
   }

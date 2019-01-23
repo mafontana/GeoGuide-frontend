@@ -10,6 +10,8 @@ import {
 
 import { Router, Scene, Tabs } from 'react-native-router-flux'
 
+import { AppProvider } from './js/Context';
+
 import HomeScreen from './js/HomeScreen'
 import LoginScreen from './js/LoginScreen'
 import LogoutScreen from './js/LogoutScreen'
@@ -27,6 +29,7 @@ export default class App extends Component{
 
   render(){
     return (
+      <AppProvider>
         <Router>
           <Scene
             key="root"
@@ -80,6 +83,7 @@ export default class App extends Component{
             </Scene>
           </Scene>
         </Router>
+        </AppProvider>
     );
   }
 }
