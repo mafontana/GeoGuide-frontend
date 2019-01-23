@@ -17,6 +17,7 @@ import SignUpScreen from './js/SignUpScreen'
 import TutorialScreen from './js/TutorialScreen'
 import DashboardScreen from './js/DashboardScreen'
 import ARscreen from './js/ARscreen';
+import MapScreen from './js/MapScreen'
 
 
 export default class App extends Component{
@@ -77,6 +78,11 @@ export default class App extends Component{
                     component={LogoutScreen}
                     headerMode="none"
                   />
+                  <Scene
+                  key="map"
+                  component={MapScreen}
+                  headerMode="none"
+                />
             </Scene>
           </Scene>
         </Router>

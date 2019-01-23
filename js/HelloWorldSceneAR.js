@@ -11,7 +11,8 @@ import {
   Viro3DObject,
   ViroAmbientLight,
   ViroSpotLight,
-  ViroMaterials
+  ViroMaterials,
+  ViroButton
 } from 'react-viro';
 
 export default class HelloWorldSceneAR extends Component {
@@ -32,19 +33,21 @@ export default class HelloWorldSceneAR extends Component {
       <ViroARScene onTrackingUpdated={this._onInitialized} >
       
         <ViroText 
-        style={styles.helloWorldTextStyle} position={[0, 0, -5]}
+        style={styles.helloWorldTextStyle} position={[0, 2, -5]}
         width={20} height={5}
         outerStroke={{type:"Outline", width:8, color:'#FF0000'}}
-        text="Thick red outline" />
+        text="Navajo Sandstone" />
         <ViroAmbientLight color="#ffffff" />
        
         <Viro3DObject source={require('./res/arrow/arrow.obj')}
         resources={[require('./res/arrow/arrow.mtl')]}
         type="OBJ"
-        position={[0.0, 0.0, -1]}
+        position={[0.0, 2, -1]}
         scale={[.5, .5, .5]}   
         materials="face" 
       />
+      
+
       </ViroARScene>
     );
   }
