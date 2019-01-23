@@ -37,7 +37,6 @@ export default class App extends Component{
           component={HomeScreen}
           headerMode="none"
         />
-        
                 <Scene
                 key="login"
                 component={LoginScreen}
@@ -71,11 +70,6 @@ export default class App extends Component{
                 <Scene
                     key="tutorial"
                     component={TutorialScreen}
-                    headerMode="none"
-                  />
-                  <Scene
-                    key="logout"
-                    component={LogoutScreen}
                     headerMode="none"
                   />
                   <Scene
