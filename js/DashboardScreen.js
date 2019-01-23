@@ -13,12 +13,20 @@ export default class DashboardScreen extends Component {
         >
             <Text style={localStyles.buttonText}
             onPress={() => Actions.AR()}>Enter AR</Text>
+
+
+
+            
         </TouchableHighlight>
 
 
       </View>
     );
   }
+
+
+
+  
 }
 
 
