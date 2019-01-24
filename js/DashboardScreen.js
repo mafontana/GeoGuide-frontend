@@ -11,6 +11,7 @@ export default class DashboardScreen extends Component {
         <View>
               <View style={localStyles.container}>
                 <Text style={localStyles.buttonText}>Welcome!</Text>
+                <Text style={localStyles.buttonText}> Click to learn about geology in augmented reality. </Text>
                 <TouchableHighlight style={localStyles.buttons} 
                 underlayColor={'#F26419'}
                 >
@@ -18,9 +19,7 @@ export default class DashboardScreen extends Component {
                     onPress={() => Actions.AR()}>Enter AR</Text>
                 </TouchableHighlight>
               </View>
-              <View>
-              <Text>This is a test see word here: {test} </Text>
-              </View>
+              
           </View>
       )}
         </AppConsumer>

@@ -13,6 +13,7 @@ import {
   ViroARSceneNavigator
 } from 'react-viro';
 
+import { Actions } from 'react-native-router-flux';
 
 // Sets the AR scene
 var InitialARScene = require('./HelloWorldSceneAR');
@@ -40,9 +41,9 @@ export default class ViroSample extends Component {
             apiKey="EF75C814-E502-4F40-9F24-E6B325BC8F4A"
             initialScene={{scene: InitialARScene}}
             worldAlignment={"Gravity"} />
-            <TouchableHighlight style={localStyles.buttons} 
-            underlayColor={'#F26419'}
-            >
+            <TouchableHighlight 
+            style={{height: 40, width: 30, backgroundColor: '#F6AE2D',  borderRadius: 10, borderWidth: 2,}}
+            onPress={() => Actions.dash()}>
                 <Text style={localStyles.buttonText}>
                 Exit AR
                 </Text>
