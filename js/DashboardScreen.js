@@ -9,13 +9,13 @@ export default class DashboardScreen extends Component {
       <AppConsumer>
       {({ test }) => (
         <View>
+        <Text style={localStyles.buttonText}>Welcome, Meredith!</Text>
+        <Text style={localStyles.text}> Click "Enter AR" to start your virtual geology tour.</Text>
               <View style={localStyles.container}>
-                <Text style={localStyles.buttonText}>Welcome!</Text>
-                <Text style={localStyles.buttonText}> Click to learn about geology in augmented reality. </Text>
                 <TouchableHighlight style={localStyles.buttons} 
                 underlayColor={'#F26419'}
                 >
-                    <Text style={localStyles.buttonText}
+                    <Text style={{color: 'white', fontSize: 40, fontWeight: 'bold', textAlign: 'center', paddingTop: 30}}
                     onPress={() => Actions.AR()}>Enter AR</Text>
                 </TouchableHighlight>
               </View>
@@ -25,8 +25,6 @@ export default class DashboardScreen extends Component {
         </AppConsumer>
     );
   }
-
- 
 }
 
 
@@ -42,11 +40,28 @@ export default class DashboardScreen extends Component {
     buttonText: {
       color:'#F26419',
       textAlign:'center',
-      fontSize : 20
+      fontSize : 30, 
+      marginTop: 30,
+      fontWeight: 'bold',
+
+    },
+    buttonText2: {
+      color: 'white',
+      textAlign: 'center',
+      fontSize : 30, 
+      marginTop: 30,
+      fontWeight: 'bold',
+
+    },
+    text: {
+      color:'#F26419',
+      textAlign:'center',
+      fontSize : 20, 
+      marginTop: 10,
     },
     buttons : {
-      height: 60,
-      width: 150,
+      height: 150,
+      width: 250,
       paddingTop:17,
       paddingBottom:10,
       marginTop: 10,
@@ -55,5 +70,6 @@ export default class DashboardScreen extends Component {
       borderRadius: 10,
       borderWidth: 2,
       borderColor: '#F26419',
+      textAlign: 'center',
     }
   });

@@ -42,7 +42,7 @@ export default class ViroSample extends Component {
             initialScene={{scene: InitialARScene}}
             worldAlignment={"Gravity"} />
             <TouchableHighlight 
-            style={{height: 40, width: 30, backgroundColor: '#F6AE2D',  borderRadius: 10, borderWidth: 2,}}
+            style={{height: 40, width: 70, backgroundColor: '#F6AE2D',  borderRadius: 10, borderWidth: 2,}}
             onPress={() => Actions.dash()}>
                 <Text style={localStyles.buttonText}>
                 Exit AR
