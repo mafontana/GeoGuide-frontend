@@ -11,24 +11,13 @@ export class AppProvider extends Component {
     super(props);
     this.state = {
       loggedIn: false,
-      user: [],
-      avatar: '',
-
-      users: [],
-      objects: [],
-      droppedObjs: [],
-      organizedDroppedObjs: [],
-      profileListSelect: 1,
-      listSelect: 1,
 
       userLat: 0,
       userLong: 0,
       navError: false,
-
-      objToDrop: [],
-      objToSearch: {},
-      objPosition: {},
+      poiPosition: {},
       trackDistance: 0,
+      
     }
   }
 
@@ -43,30 +32,14 @@ export class AppProvider extends Component {
     const droppedObjjson = await droppedObjResponse.json();
     const organizedDroppedObjs = await this.organizeDroppedObj(droppedObjjson.objects)
 
+    const test = "pants"
+
     this.setState({
       users: userjson.virgeo_users,
       objects: objjson.objects,
       droppedObjs: droppedObjjson.objects,
       objToSearch: organizedDroppedObjs[0],
     })
-  }
-
-
-  logIn = (userId) =>{
-    fetch(`${baseUrl}/users/${userId}`)
-      .then(response => response.json())
-      .then(json => {
-        let avatar = json.user[0].avatar_info[0].avatar_name
-
-        return this.setState({
-          user: json.user,
-          loggedIn: true,
-          avatar: avatar,
-        })
-      })
-      .then(()=>{
-        Actions.profile()
-      })
   }
 
 
@@ -82,4 +55,54 @@ export class AppProvider extends Component {
     );
   };
 
+  
+
+
+  render() {
+    const { children } = this.props;
+
+    return (
+      <AppContext.Provider
+        value={{
+          loggedIn: this.state.loggedIn,
+          user: this.state.user,
+          userLat: this.state.userLat,
+          userLong: this.state.userLong,
+          avatar: this.state.avatar,
+
+          users: this.state.users,
+          objects: this.state.objects,
+          droppedObjs: this.state.droppedObjs,
+          organizedDroppedObjs: this.state.organizedDroppedObjs,
+          listSelect: this.state.listSelect,
+          profileListSelect: this.state.profileListSelect,
+
+          objToDrop: this.state.objToDrop,
+          objToSearch: this.state.objToSearch,
+          objPosition: this.state.objPosition,
+          trackDistance: this.state.trackDistance,
+
+          logIn: this.logIn,
+          logOut: this.logOut,
+          pickUpObj: this.pickUpObj,
+          dropObj: this.dropObj,
+          calculatedObjPos: this.calculatedObjPos,
+          organizeDroppedObj: this.organizeDroppedObj,
+          reorganizeDroppedObj: this.reorganizeDroppedObj,
+          listSelectFunc: this.listSelectFunc,
+          profileListSelectFunc: this.profileListSelectFunc,
+          trackObjToSearch: this.trackObjToSearch,
+
+
+        
+        }}
+      >
+        {children}
+      </AppContext.Provider>
+    );
+  }
+
 }
+
+
+export const AppConsumer = AppContext.Consumer;

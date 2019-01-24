@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
 import { Text,TextInput, View, Button, Image, TouchableHighlight, StyleSheet,ImageBackground } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { AppConsumer } from './Context';
 
 export default class DashboardScreen extends Component {
   render() {
     return (
-      <View style={localStyles.container}>
-        <Text style={localStyles.buttonText}>Welcome!</Text>
-        <TouchableHighlight style={localStyles.buttons} 
-        underlayColor={'#F26419'}
-        >
-            <Text style={localStyles.buttonText}
-            onPress={() => Actions.AR()}>Enter AR</Text>
-        </TouchableHighlight>
-      </View>
+      <AppConsumer>
+      {({ test }) => (
+        <View>
+              <View style={localStyles.container}>
+                <Text style={localStyles.buttonText}>Welcome!</Text>
+                <TouchableHighlight style={localStyles.buttons} 
+                underlayColor={'#F26419'}
+                >
+                    <Text style={localStyles.buttonText}
+                    onPress={() => Actions.AR()}>Enter AR</Text>
+                </TouchableHighlight>
+              </View>
+              <View>
+              <Text>This is a test see word here: {test} </Text>
+              </View>
+          </View>
+      )}
+        </AppConsumer>
     );
   }
 
-
-
-  
+ 
 }
 
 

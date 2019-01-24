@@ -56,6 +56,10 @@ export default class HelloWorldSceneAR extends Component {
 
 
 
+
+
+
+
   _onInitialized(state, reason) {
     if (state == ViroConstants.TRACKING_NORMAL) {
       this.setState({

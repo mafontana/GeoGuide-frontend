@@ -18,12 +18,6 @@ import {
 var InitialARScene = require('./HelloWorldSceneAR');
 
 
-var UNSET = "UNSET";
-var VR_NAVIGATOR_TYPE = "VR";
-var AR_NAVIGATOR_TYPE = "AR";
-
-
-var defaultNavigatorType = UNSET;
 
 export default class ViroSample extends Component {
   constructor() {
@@ -42,10 +36,17 @@ export default class ViroSample extends Component {
   getARNavigator() {
     return (
       <View style={{flex: 1}}>
-            <ViroARSceneNavigator 
+            <ViroARSceneNavigator style={{flex: 1}}
             apiKey="EF75C814-E502-4F40-9F24-E6B325BC8F4A"
             initialScene={{scene: InitialARScene}}
             worldAlignment={"Gravity"} />
+            <TouchableHighlight style={localStyles.buttons} 
+            underlayColor={'#F26419'}
+            >
+                <Text style={localStyles.buttonText}>
+                Exit AR
+                </Text>
+            </TouchableHighlight>
       </View>
     );
   }
