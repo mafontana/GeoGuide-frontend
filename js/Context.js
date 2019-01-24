@@ -17,6 +17,7 @@ export class AppProvider extends Component {
       navError: false,
       poiPosition: {},
       trackDistance: 0,
+      currentPosition: 0
       
     }
   }
@@ -43,22 +44,26 @@ export class AppProvider extends Component {
   }
 
 
-  findCoordinates = () => {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const location = JSON.stringify(position);
-
-        this.setState({ location });
-      },
-      error => Alert.alert(error.message),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-    );
-  };
 
   
 
+  findCurrentLocation = () => {
+    navigator.geolocation.stopObserving();
+    navigator.geolocation.watchPosition(
+      (position) => {
+        let userLat = position.coords.latitude
+        let userLong = position.coords.longitude
+            this.setState({
+            userLat: userLat,
+            userLong: userLong,
+            })
+      })
+  }
+
+
 
   render() {
+      
     const { children } = this.props;
 
     return (
@@ -68,33 +73,13 @@ export class AppProvider extends Component {
           user: this.state.user,
           userLat: this.state.userLat,
           userLong: this.state.userLong,
-          avatar: this.state.avatar,
-
-          users: this.state.users,
-          objects: this.state.objects,
-          droppedObjs: this.state.droppedObjs,
-          organizedDroppedObjs: this.state.organizedDroppedObjs,
-          listSelect: this.state.listSelect,
-          profileListSelect: this.state.profileListSelect,
-
-          objToDrop: this.state.objToDrop,
-          objToSearch: this.state.objToSearch,
-          objPosition: this.state.objPosition,
-          trackDistance: this.state.trackDistance,
+       
 
           logIn: this.logIn,
           logOut: this.logOut,
-          pickUpObj: this.pickUpObj,
-          dropObj: this.dropObj,
-          calculatedObjPos: this.calculatedObjPos,
-          organizeDroppedObj: this.organizeDroppedObj,
-          reorganizeDroppedObj: this.reorganizeDroppedObj,
-          listSelectFunc: this.listSelectFunc,
-          profileListSelectFunc: this.profileListSelectFunc,
-          trackObjToSearch: this.trackObjToSearch,
+          
+          currentPosition: this.state.currentPosition
 
-
-        
         }}
       >
         {children}
