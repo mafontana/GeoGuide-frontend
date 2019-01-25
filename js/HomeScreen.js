@@ -5,24 +5,39 @@ import { Actions } from 'react-native-router-flux';
 
 export default class HomeScreen extends Component {
   render() {
+   
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: "#55DDE0" }}>
-        <Text style={localStyles.headingText}>Welcome to Pocket Geologist!</Text>
+      <View style={localStyles.backgroundImage}>
+          <View style={{flex: 1}}> 
+              <Image
+              style={localStyles.image}
+              source={require(`./res/geoguide_logo.png`)}
+            />
        
+            </View>   
+         <View style={localStyles.buttonDiv} > 
+            <TouchableHighlight style={localStyles.buttons} 
+            underlayColor={'#F26419'}
+            onPress={() => Actions.login()}>
+                <Text style={localStyles.buttonText}>Login</Text>
+                
+            </TouchableHighlight>
 
-        <TouchableHighlight style={localStyles.buttons} 
-        underlayColor={'#F26419'}
-        onPress={() => Actions.login()}>
-            <Text style={localStyles.buttonText}>Login</Text>
-            
-        </TouchableHighlight>
-
-        <TouchableHighlight style={localStyles.buttons} 
-        underlayColor={'#F26419'}
-        onPress={() => Actions.signup()}>
-            <Text style={localStyles.buttonText}>Sign Up</Text>
-        </TouchableHighlight>
-      </View>
+            <TouchableHighlight style={localStyles.buttons} 
+            underlayColor={'#F26419'}
+            onPress={() => Actions.signup()}>
+                <Text style={localStyles.buttonText}>Sign Up</Text>
+            </TouchableHighlight>
+        </View>  
+        <View style={{flex: 1}}> 
+              <Image
+              style={localStyles.image2}
+              source={require(`./res/geology-icon.png`)}
+            />
+       
+            </View>   
+      
+        </View>
 
       
     );
@@ -31,24 +46,38 @@ export default class HomeScreen extends Component {
 
 
   var localStyles = StyleSheet.create({
-    container: {
-        flex: 1, 
-        alignItems: 'center',
-        marginTop:120
-    },
-    backgroundImage: {
-        position: 'absolute'
-      },
+  
+
     buttonText: {
       color:'#F26419',
       textAlign:'center',
       fontSize : 20,
+      fontWeight: 'bold'
     },
-    headingText: {
-        color:'#F26419',
-        textAlign:'center',
-        fontSize : 30,
-      },
+    backgroundImage: {
+      flex: 1, 
+      justifyContent: 'center',
+      alignItems: 'center', 
+      backgroundColor: "white", 
+      resizeMode: 'center',
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      justifyContent: 'center',
+      marginBottom: 0,
+      paddingBottom: 0
+    },
+    buttonDiv: {
+      paddingBottom: 20
+    },
+    image: {
+      flex: 1,
+      resizeMode: 'center'
+    },
+    image2: {
+      flex: 2,
+      resizeMode: 'cover',
+    },
     buttons : {
       height: 60,
       width: 150,
@@ -58,7 +87,7 @@ export default class HomeScreen extends Component {
       marginBottom: 10,
       backgroundColor:'#F6AE2D',
       borderRadius: 10,
-      borderWidth: 2,
+   
       borderColor: '#F26419',
     }
   });

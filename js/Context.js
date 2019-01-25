@@ -33,7 +33,7 @@ export class AppProvider extends Component {
     const droppedObjjson = await droppedObjResponse.json();
     const organizedDroppedObjs = await this.organizeDroppedObj(droppedObjjson.objects)
 
-    const test = "pants"
+ 
 
     this.setState({
       users: userjson.virgeo_users,
@@ -46,7 +46,7 @@ export class AppProvider extends Component {
 
 
   
-
+// this will find the current latitude and longitude of the user when called
   findCurrentLocation = () => {
     navigator.geolocation.stopObserving();
     navigator.geolocation.watchPosition(

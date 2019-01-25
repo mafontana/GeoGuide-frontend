@@ -12,6 +12,7 @@
     "native-base": "^2.10.0",
     "react": "16.6.1",
     "react-native": "0.57.7",
+    "react-native-easy-grid": "^0.2.0",
     "react-native-elements": "^1.0.0-beta7",
     "react-native-router-flux": "^4.0.6",
     "react-viro": "2.13.0"

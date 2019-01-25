@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 
+
 import { Router, Scene, Tabs } from 'react-native-router-flux'
 
 import { AppProvider } from './js/Context';
@@ -80,6 +81,7 @@ export default class App extends Component{
                   component={MapScreen}
                   headerMode="none"
                 />
+               
             </Scene>
           </Scene>
         </Router>
