@@ -15,12 +15,11 @@ import { AppProvider } from './js/Context';
 
 import HomeScreen from './js/HomeScreen'
 import LoginScreen from './js/LoginScreen'
-import LogoutScreen from './js/LogoutScreen'
 import SignUpScreen from './js/SignUpScreen'
 import TutorialScreen from './js/TutorialScreen'
-import DashboardScreen from './js/DashboardScreen'
 import ARscreen from './js/ARscreen';
 import MapScreen from './js/MapScreen'
+import ARPortalScreen from './js/ARPortalScreen';
 
 
 export default class App extends Component{
@@ -31,7 +30,7 @@ export default class App extends Component{
   render(){
     return (
       <AppProvider>
-        <Router>
+        <Router >
           <Scene
             key="root"
             headerMode="none"
@@ -67,20 +66,21 @@ export default class App extends Component{
               hideTabBar={false}
             >
                 <Scene
-                key="dash"
-                component={DashboardScreen}
+                key="tutorial"
+                component={TutorialScreen}
                 headerMode="none"
-              />
-                <Scene
-                    key="tutorial"
-                    component={TutorialScreen}
-                    headerMode="none"
-                  />
+            />
                   <Scene
                   key="map"
                   component={MapScreen}
                   headerMode="none"
                 />
+              <Scene
+              key="start"
+              title="Enter AR"
+              component={ARPortalScreen}
+              headerMode="none"
+            />
                
             </Scene>
           </Scene>
@@ -92,9 +92,11 @@ export default class App extends Component{
 var styles = StyleSheet.create({
   tabBar : {
     color: 'white',
-    fontFamily: 'Avenir',
     fontSize: 15,
     fontWeight: 'bold',
-    letterSpacing: 1
+    letterSpacing: 1,
+  }, 
+  navBar: {
+    backgroundColor: 'orange'
   }
 })

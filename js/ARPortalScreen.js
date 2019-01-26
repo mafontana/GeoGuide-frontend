@@ -3,13 +3,12 @@ import { Text,TextInput, View, Button, Image, TouchableHighlight, StyleSheet,Ima
 import { Actions } from 'react-native-router-flux';
 import { AppConsumer } from './Context';
 
-export default class DashboardScreen extends Component {
+export default class ARPortalScreen extends Component {
   render() {
     return (
       <AppConsumer>
       {({ test }) => (
-        <View>
-        <Text style={localStyles.buttonText}>Welcome, Meredith!</Text>
+        <View style={{flex: 1, backgroundColor: 'white'}}>
         <Text style={localStyles.text}> Click "Enter AR" to start your virtual geology tour.</Text>
               <View style={localStyles.container}>
                 <TouchableHighlight style={localStyles.buttons} 
@@ -19,7 +18,7 @@ export default class DashboardScreen extends Component {
                     onPress={() => Actions.AR()}>Enter AR</Text>
                 </TouchableHighlight>
               </View>
-              
+            
           </View>
       )}
         </AppConsumer>
@@ -32,7 +31,8 @@ export default class DashboardScreen extends Component {
     container: {
         flex: 1, 
         alignItems: 'center',
-        marginTop:120
+        marginTop:120, 
+        backgroundColor: 'white'
     },
     backgroundImage: {
         position: 'absolute'
@@ -53,11 +53,16 @@ export default class DashboardScreen extends Component {
       fontWeight: 'bold',
 
     },
+    image2: {
+      flex: 1,
+    
+    },
     text: {
       color:'#F26419',
       textAlign:'center',
       fontSize : 20, 
       marginTop: 10,
+      backgroundColor: 'white'
     },
     buttons : {
       height: 150,
@@ -70,6 +75,5 @@ export default class DashboardScreen extends Component {
       borderRadius: 10,
       borderWidth: 2,
       borderColor: '#F26419',
-      textAlign: 'center',
     }
   });
