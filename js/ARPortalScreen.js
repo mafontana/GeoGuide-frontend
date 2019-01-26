@@ -9,18 +9,23 @@ export default class ARPortalScreen extends Component {
       <AppConsumer>
       {({ test }) => (
         <View style={localStyles.container}>
-        <View style={localStyles.innerDiv}> 
-              <Text style={localStyles.headings}> 
-                Click "Enter AR" to start your virtual geology tour.
-              </Text>
-              <View style={localStyles.container}>
-                <TouchableHighlight style={localStyles.buttons} 
-                underlayColor={'#F26419'}>
-                    <Text style={localStyles.buttonText}
-                    onPress={() => Actions.AR()}>Enter AR</Text>
-                </TouchableHighlight>
-              </View>
-              </View>
+          <View style={localStyles.innerDiv}> 
+                <Text style={localStyles.headings}> 
+                  Click "Enter AR" to start your virtual geology tour.
+                </Text>
+                </View>
+                <View style={localStyles.container}>
+                  <TouchableHighlight style={localStyles.buttons} 
+                  underlayColor={'#F26419'}>
+                      <Text style={localStyles.buttonText}
+                      onPress={() => Actions.AR()}>Enter AR</Text>
+                  </TouchableHighlight>
+                </View>
+            
+              <Image
+              style={localStyles.image}
+              source={require(`./res/geology-icon.png`)}
+            />
           </View>
       )}
         </AppConsumer>
@@ -33,8 +38,11 @@ export default class ARPortalScreen extends Component {
         flex: 1,
         alignItems: 'center',
         backgroundColor: 'white',
-        
     },
+      image: {
+        flex: 1,
+        resizeMode: 'contain'
+      },
       innerDiv: {
         marginTop: 30
     },
