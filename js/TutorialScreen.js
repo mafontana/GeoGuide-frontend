@@ -15,7 +15,7 @@ export default class HomeScreen extends Component {
         1. Open the map which you will see in the tab above. 
         </Text>
           <Text style={localStyles.text} >
-          You will see orange markers on the map which indicate "AR scenes." An AR 
+          You will see red markers on the map which indicate "AR scenes." An AR 
           scene is a location on your trail where you will initialize augmented reality
           to view the geology around you.
         </Text>
@@ -30,7 +30,7 @@ export default class HomeScreen extends Component {
           1. Initialize Augmented reality
           </Text>
             <Text style={localStyles.text}>
-            Once you reach an AR scene (i.e. an orange dot on the map), you are ready to 
+            Once you reach an AR scene (i.e. an marker on the map), you are ready to 
             start viewing geology in your surroundings through augented reality. Click "Enter AR"
             to start the augmented reality experience. 
           </Text>    
