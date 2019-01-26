@@ -18,8 +18,6 @@ import { Actions } from 'react-native-router-flux';
 // Sets the AR scene
 var InitialARScene = require('./HelloWorldSceneAR');
 
-
-
 export default class ViroSample extends Component {
   constructor() {
     super();
@@ -32,7 +30,6 @@ export default class ViroSample extends Component {
   render() {
     return this.getARNavigator()
     }
-  
 
   getARNavigator() {
     return (
@@ -43,7 +40,7 @@ export default class ViroSample extends Component {
             worldAlignment={"Gravity"} />
             <TouchableHighlight 
             style={{height: 40, width: 70, backgroundColor: '#F6AE2D',  borderRadius: 10, borderWidth: 2,}}
-            onPress={() => Actions.dash()}>
+            onPress={() => Actions.start()}>
                 <Text style={localStyles.buttonText}>
                 Exit AR
                 </Text>
@@ -79,9 +76,10 @@ var localStyles = StyleSheet.create({
     fontSize : 25
   },
   buttonText: {
-    color:'#fff',
+    color:'#F26419',
     textAlign:'center',
-    fontSize : 20
+    fontSize : 20,
+    fontWeight: 'bold'
   },
   buttons : {
     height: 80,

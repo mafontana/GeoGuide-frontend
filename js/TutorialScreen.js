@@ -34,7 +34,6 @@ export default class HomeScreen extends Component {
             start viewing geology in your surroundings through augented reality. Click "Enter AR"
             to start the augmented reality experience. 
           </Text>    
-            
           </View>
           </ScrollView>
       )}
@@ -43,13 +42,19 @@ export default class HomeScreen extends Component {
   }
 }
 
-
   var localStyles = StyleSheet.create({
     headings: {
-      color: '#F26419', fontSize: 20,  fontWeight: 'bold', paddingLeft: 30, paddingTop: 20
+      color: '#F26419', 
+      fontSize: 20,  
+      fontWeight: 'bold', 
+      paddingLeft: 30, 
+      paddingTop: 20
     },
     text: {
-      color: '#F26419', fontSize: 20, paddingLeft: 50, paddingTop: 20
+      color: '#F26419', 
+      fontSize: 20, 
+      paddingLeft: 50, 
+      paddingTop: 20
     }
 
   });

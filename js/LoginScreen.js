@@ -45,8 +45,6 @@ export default class HomeScreen extends Component {
                     style={localStyles.image2}
                     source={require(`./res/geology-icon.png`)}
                   />
-          
-             
                   </View>  
         </View>
         </View>
@@ -106,7 +104,6 @@ var localStyles = StyleSheet.create({
     marginBottom: 10,
     backgroundColor:'#F6AE2D',
     borderRadius: 10,
- 
     borderColor: '#F26419',
   }
 });

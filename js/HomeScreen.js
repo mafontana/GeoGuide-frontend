@@ -9,9 +9,9 @@ export default class HomeScreen extends Component {
     return (
       <View style={localStyles.backgroundImage}>
           <View style={{flex: 1}}> 
-              <Image
+            <Image
               style={localStyles.image}
-              source={require(`./res/geoguide_logo.png`)}
+              source={require(`./res/geoguide-logo-7.png`)}
             />
        
             </View>   
@@ -24,9 +24,9 @@ export default class HomeScreen extends Component {
             </TouchableHighlight>
 
             <TouchableHighlight style={localStyles.buttons} 
-            underlayColor={'#F26419'}
-            onPress={() => Actions.signup()}>
-                <Text style={localStyles.buttonText}>Sign Up</Text>
+              underlayColor={'#F26419'}
+              onPress={() => Actions.signup()}>
+                  <Text style={localStyles.buttonText}>Sign Up</Text>
             </TouchableHighlight>
         </View>  
         <View style={{flex: 1}}> 
@@ -34,20 +34,13 @@ export default class HomeScreen extends Component {
               style={localStyles.image2}
               source={require(`./res/geology-icon.png`)}
             />
-       
             </View>   
-      
         </View>
-
-      
-    );
+    )
   }
 }
 
-
   var localStyles = StyleSheet.create({
-  
-
     buttonText: {
       color:'#F26419',
       textAlign:'center',
@@ -72,7 +65,7 @@ export default class HomeScreen extends Component {
     },
     image: {
       flex: 1,
-      resizeMode: 'center'
+      resizeMode: 'contain'
     },
     image2: {
       flex: 2,
@@ -87,7 +80,5 @@ export default class HomeScreen extends Component {
       marginBottom: 10,
       backgroundColor:'#F6AE2D',
       borderRadius: 10,
-   
-      borderColor: '#F26419',
     }
   });
