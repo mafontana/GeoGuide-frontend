@@ -95,6 +95,7 @@ var styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     letterSpacing: 1,
+    marginTop: 30
   }, 
   navBar: {
     backgroundColor: 'orange'
