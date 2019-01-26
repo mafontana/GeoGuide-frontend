@@ -33,7 +33,7 @@ export default class HelloWorldSceneAR extends Component {
       <ViroARScene onTrackingUpdated={this._onInitialized} >
         <ViroText 
         style={styles.helloWorldTextStyle} 
-        position={[0, 0, -10]}
+        position={[-10, 0, -10]}
         width={20} height={5}
         outerStroke={{type:"Outline", width:8, color:'#FF0000'}}
         text="the dog" />
@@ -85,7 +85,7 @@ ViroMaterials.createMaterials({
   face: {
     shininess : 2.0,
     lightingModel: "Blinn",
-    diffuseTexture: require('./res/grid_bg.jpg'),
+    diffuseTexture: require('./res/greenbox.jpg'),
   },
 });
 
