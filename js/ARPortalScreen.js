@@ -4,15 +4,17 @@ import { Actions } from 'react-native-router-flux';
 import { AppConsumer } from './Context';
 
 export default class ARPortalScreen extends Component {
+
   render() {
     return (
       <AppConsumer>
-      {({ test }) => (
+      {({ poiName, sceneCoordinates }) => (
         <View style={localStyles.container}>
           <View style={localStyles.innerDiv}> 
                 <Text style={localStyles.headings}> 
                   Click "Enter AR" to start your virtual geology tour.
                 </Text>
+               
                 </View>
                 <View style={localStyles.container}>
                   <TouchableHighlight style={localStyles.buttons} 

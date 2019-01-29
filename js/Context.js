@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 
-var baseUrl = 'http://192.168.1.60:3101'
-
 export const AppContext = React.createContext();
-
 
 export class AppProvider extends Component {
   constructor(props) {
@@ -17,36 +14,23 @@ export class AppProvider extends Component {
       navError: false,
       poiPosition: {},
       trackDistance: 0,
-      currentPosition: 0
-      
+      currentPosition: 0,
+      poiName: {},
+      sceneCoordinates: {},
+      geologicFormations: {}
     }
   }
 
   async componentDidMount() {
-
-    const userResponse = await fetch(`${baseUrl}/users`)
-    const objResponse = await fetch(`${baseUrl}/objects`)
-    const droppedObjResponse = await fetch(`${baseUrl}/dropped_objects`)
-
-    const userjson = await userResponse.json();
-    const objjson = await objResponse.json();
-    const droppedObjjson = await droppedObjResponse.json();
-    const organizedDroppedObjs = await this.organizeDroppedObj(droppedObjjson.objects)
-
- 
-
+    const poiCoordinates = await fetch('https://geoguide-server.herokuapp.com/api/points/5c4fb501a0919f00169a8fcb');
+    const poiJSON = await poiCoordinates.json();
     this.setState({
-      users: userjson.virgeo_users,
-      objects: objjson.objects,
-      droppedObjs: droppedObjjson.objects,
-      objToSearch: organizedDroppedObjs[0],
+      poiName: poiJSON.name,
+      sceneCoordinates: poiJSON.AR_scenes,
+      geologicFormations: poiJSON.geologic_formations
     })
   }
 
-
-
-  
-// this will find the current latitude and longitude of the user when called
   findCurrentLocation = () => {
     navigator.geolocation.stopObserving();
     navigator.geolocation.watchPosition(
@@ -60,12 +44,8 @@ export class AppProvider extends Component {
       })
   }
 
-
-
-  render() {
-      
+  render() {   
     const { children } = this.props;
-
     return (
       <AppContext.Provider
         value={{
@@ -73,6 +53,10 @@ export class AppProvider extends Component {
           user: this.state.user,
           userLat: this.state.userLat,
           userLong: this.state.userLong,
+
+          poiName: this.state.poiName,
+          sceneCoordinates: this.state.sceneCoordinates,
+          geologicFormations: this.state.geologicFormations,
        
 
           logIn: this.logIn,

@@ -9,6 +9,32 @@ export default class MapScreen extends Component<{}> {
   constructor() {
     super();
     this.state = {
+      poiName: {},
+      AR_scenes: {},
+      longitudeScene1: 0,
+      latitudeScene1: 0,
+      longitudeScene2: 0,
+      latitudeScene2: 0,
+      longitudeScene3: 0,
+      latitudeScene3: 0,
+      longitudeScene4: 0,
+      latitudeScene4: 0,
+      longitudeScene5: 0,
+      latitudeScene5: 0,
+      longitudeScene6: 0,
+      latitudeScene6: 0,
+      longitudeScene7: 0,
+      latitudeScene7: 0,
+      longitudeScene8: 0,
+      latitudeScene8: 0,
+      longitudeScene9: 0,
+      latitudeScene9: 0,
+      longitudeScene10: 0,
+      latitudeScene10: 0,
+      geologicFormations: {},
+
+
+
       route:
       {
         "type": "FeatureCollection",
@@ -319,6 +345,41 @@ export default class MapScreen extends Component<{}> {
     }
   }
 
+  async componentDidMount() {
+
+    const poiCoordinates = await fetch('https://geoguide-server.herokuapp.com/api/points/5c4fdd11ad3af90016634c6a');
+
+    const poiJSON = await poiCoordinates.json();
+
+    this.setState({
+      poiName: poiJSON.name,
+      AR_scenes: poiJSON.AR_scenes,
+      geologicFormations: poiJSON.geologic_formations, 
+      longitudeScene1: poiJSON.AR_scenes.coordinates_AR_scene1[0],
+      latitudeScene1: poiJSON.AR_scenes.coordinates_AR_scene1[1],
+      longitudeScene2: poiJSON.AR_scenes.coordinates_AR_scene2[0],
+      latitudeScene2: poiJSON.AR_scenes.coordinates_AR_scene2[1],
+      longitudeScene3: poiJSON.AR_scenes.coordinates_AR_scene3[0],
+      latitudeScene3: poiJSON.AR_scenes.coordinates_AR_scene3[1],
+      longitudeScene4: poiJSON.AR_scenes.coordinates_AR_scene4[0],
+      latitudeScene4: poiJSON.AR_scenes.coordinates_AR_scene4[1],
+      longitudeScene5: poiJSON.AR_scenes.coordinates_AR_scene5[0],
+      latitudeScene5: poiJSON.AR_scenes.coordinates_AR_scene5[1],
+      longitudeScene6: poiJSON.AR_scenes.coordinates_AR_scene6[0],
+      latitudeScene6: poiJSON.AR_scenes.coordinates_AR_scene6[1],
+      // longitudeScene7: poiJSON.AR_scenes.coordinates_AR_scene7[0],
+      // latitudeScene7: poiJSON.AR_scenes.coordinates_AR_scene7[1],
+      // longitudeScene8: poiJSON.AR_scenes.coordinates_AR_scene8[0],
+      // latitudeScene8: poiJSON.AR_scenes.coordinates_AR_scene8[1],
+      // longitudeScene9: poiJSON.AR_scenes.coordinates_AR_scene9[0],
+      // latitudeScene9: poiJSON.AR_scenes.coordinates_AR_scene9[1],
+      // longitudeScene10: poiJSON.AR_scenes.coordinates_AR_scene10[0],
+      // latitudeScene10: poiJSON.AR_scenes.coordinates_AR_scene10[1],
+    })
+  }
+
+
+
     renderAnnotations () {
         return (
             <Mapbox.PointAnnotation
@@ -335,13 +396,15 @@ export default class MapScreen extends Component<{}> {
       }  
       
       render() {
+  
+     
         return (
           <View style={styles.container}>
             <MapboxGL.MapView
               // styleURL={MapboxGL.StyleURL.Light}
               zoomLevel={13}
-              centerCoordinate={[-104.88048791885376,
-                38.877227782312154]}
+              centerCoordinate={[-104.88016605377197,
+                38.88154580068335]}
               style={styles.container}
               showUserLocation={true}
               > 
@@ -349,33 +412,28 @@ export default class MapScreen extends Component<{}> {
                 <MapboxGL.LineLayer id='linelayer1' style={{lineColor:'orange'}} />
               </MapboxGL.ShapeSource>
 
-              <MapboxGL.PointAnnotation 
-                id="7"
-                coordinate={[-105.00557, 39.75842]}
-                title="seventh waypoint"
-                snippet="this is a waypoint"
-              />
+        
               
                 <MapboxGL.PointAnnotation 
-                id="3"
-                coordinate={[-104.88263368606567,
-                  38.88136206056592]}
+                id="1"
+                coordinate={[this.state.longitudeScene1,
+                  this.state.latitudeScene1]}
                 title="third waypoint"
                 snippet="this is a waypoint"
               />
 
               <MapboxGL.PointAnnotation 
               id="2"
-              coordinate={[-104.88016605377197,
-                38.88154580068335]}
+              coordinate={[this.state.longitudeScene2,
+                this.state.latitudeScene2]}
               title="second waypoint"
               snippet="this is a waypoint"
             />
 
             <MapboxGL.PointAnnotation 
-            id="1"
-            coordinate={[ -104.8779773712158,
-              38.87721942999142]}
+            id="3"
+            coordinate={[ this.state.longitudeScene3,
+              this.state.latitudeScene3]}
             title="first waypoint"
             snippet="this is a waypoint"
 
@@ -384,27 +442,34 @@ export default class MapScreen extends Component<{}> {
           
           <MapboxGL.PointAnnotation 
           id="4"
-          coordinate={[ -104.88312721252441,
-            38.87656794594982]}
+          coordinate={[this.state.longitudeScene4,
+                this.state.latitudeScene4]}
           title="fourth waypoint"
           snippet="this is a waypoint"
         />
 
         <MapboxGL.PointAnnotation 
         id="5"
-        coordinate={[ -104.87884640693665,
-          38.86781409400288]}
+        coordinate={[ this.state.longitudeScene5,
+          this.state.latitudeScene5]}
         title="fifth waypoint"
         snippet="this is a waypoint"
       />
 
       <MapboxGL.PointAnnotation 
       id="6"
-      coordinate={[ -104.8785674571991,
-        38.87098832521089]}
+      coordinate={[ this.state.longitudeScene6,
+        this.state.latitudeScene6]}
         title="sixth waypoint"
         snippet="this is a waypoint"
     />
+    <MapboxGL.PointAnnotation 
+    id="7"
+    coordinate={[ this.state.longitudeScene7,
+      this.state.latitudeScene7]}
+      title="seventh waypoint"
+      snippet="this is a waypoint"
+  />
 
             </MapboxGL.MapView>
           </View>
@@ -418,61 +483,3 @@ export default class MapScreen extends Component<{}> {
       },
     });
   
-//     render() {
-//     return (
-//       <View style={styles.container}>
-//         <Mapbox.MapView
-//             styleURL={Mapbox.StyleURL.Street}
-//             zoomLevel={10}
-//             centerCoordinate={[-104.9903, 39.7392]}
-//             style={styles.container}
-//             showUserLocation={true}>
-//             {this.renderAnnotations()}
-//         </Mapbox.MapView>
-//       </View>
-//     );
-//   }
-// }
-
-// render() {
-//   return (
-//     <View style={styles.container}>
-//       <MapboxGL.MapView
-//         styleURL={MapboxGL.StyleURL.Light}
-//         zoomLevel={15}
-//         centerCoordinate={[-104.9903, 39.7392]}
-//         style={styles.container}
-//         showUserLocation={true}>
-//         {this.renderAnnotations()}
-//         > 
-//         <MapboxGL.ShapeSource id='line1' shape={this.state.route}>
-//           <MapboxGL.LineLayer id='linelayer1' style={{lineColor:'red'}} />
-//         </MapboxGL.ShapeSource>
-
-//       </MapboxGL.MapView>
-//     </View>
-//   );
-// }
-// }
-
-
-// const styles = StyleSheet.create({
-//     container: {
-//       flex: 1,
-//     },
-//     annotationContainer: {
-//       width: 30,
-//       height: 30,
-//       alignItems: 'center',
-//       justifyContent: 'center',
-//       backgroundColor: 'white',
-//       borderRadius: 15,
-//     },
-//     annotationFill: {
-//       width: 30,
-//       height: 30,
-//       borderRadius: 15,
-//       backgroundColor: 'orange',
-//       transform: [{ scale: 0.6 }],
-//     }
-//   });
