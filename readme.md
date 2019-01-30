@@ -25,16 +25,23 @@ View demo on YouTube [here](https://www.youtube.com/watch?v=FwqQZZcBBNA&feature=
 
 
 ## Technologies Used
+
+```sh
+### Front End
 * React Native
 * ViroReact
 * Mapbox
 * JavaScript
 * HTML
 * CSS
+
+### Back End
 * Node.js
 * MongoDB
 * Express.js
-* Knex.js
+```
+
+
 
 ## Author
 
