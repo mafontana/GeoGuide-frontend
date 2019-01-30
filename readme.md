@@ -26,7 +26,6 @@ View demo on YouTube [here](https://www.youtube.com/watch?v=FwqQZZcBBNA&feature=
 
 ## Technologies Used
 
-```sh
 ### Front End
 * React Native
 * ViroReact
@@ -39,7 +38,7 @@ View demo on YouTube [here](https://www.youtube.com/watch?v=FwqQZZcBBNA&feature=
 * Node.js
 * MongoDB
 * Express.js
-```
+
 
 
 
