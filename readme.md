@@ -1,3 +1,3 @@
-###GeoGuide
-##The virtual geology guide
+### GeoGuide
+## The virtual geology guide
 
