@@ -18,3 +18,24 @@ npm install
 
 This project uses ViroReact to incorporate augmented reality. 
 To open the project in Xcode use [Viro Media](https://docs.viromedia.com/v2.11.0/docs/starting-a-new-viro-project-1)'s instructions. 
+
+
+## App Demo
+View demo on YouTube [here](https://www.youtube.com/watch?v=FwqQZZcBBNA&feature=youtu.be)
+
+
+## Technologies Used
+* React Native
+* ViroReact
+* Mapbox
+* JavaScript
+* HTML
+* CSS
+* Node.js
+* MongoDB
+* Express.js
+* Knex.js
+
+## Author
+
+* [Meredith Fontana](https://github.com/mafontana)
